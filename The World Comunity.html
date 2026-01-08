@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World Community - AlphaDev</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Silkscreen&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://r.jina.ai/i/669d06001004463481615be524b07123'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Kanit', sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-card {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(8px);
+            border: 3px solid #00a2ff;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 162, 255, 0.3);
+            position: relative;
+        }
+
+        .alpha-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ffcc00;
+            color: #000;
+            padding: 5px 15px;
+            font-family: 'Silkscreen', cursive;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 5px;
+            transform: rotate(5deg);
+        }
+
+        .logo-area {
+            font-family: 'Silkscreen', cursive;
+            font-size: 1.8rem;
+            color: #00a2ff;
+            text-shadow: 2px 2px 0px #000;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 15px 0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            background-color: #00a2ff;
+            color: white;
+            border-bottom: 5px solid #0077bd;
+        }
+
+        .btn-download:active {
+            transform: translateY(4px);
+            border-bottom-width: 0;
+        }
+
+        /* Seção de Pix (Escondida) */
+        #pix-section {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px dashed #00a2ff;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .btn-pix {
+            background-color: #ff7a00; /* Laranja Inter */
+            color: white;
+            border-bottom: 5px solid #b35600;
+        }
+
+        .btn-no {
+            background: none;
+            color: #aaa;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .btn-no:hover { color: #fff; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.75rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="alpha-badge">ALPHADEV</div>
+        <div class="logo-area">THE WORLD INFINITY</div>
+        
+        <div id="step-1">
+            <p class="description">
+                Inspirado na liberdade do Minecraft. Construa, explore e sobreviva em um mundo infinito.
+            </p>
+            <button class="btn btn-download" onclick="showSupport()">Baixar Agora</button>
+        </div>
+
+        <div id="pix-section">
+            <p class="description" style="font-weight: bold; color: #a4eb5d;">Download Liberado!</p>
+            <p class="description" style="font-size: 0.9rem;">
+                Gostaria de apoiar o projeto com <b>R$ 1,00</b> via Inter/Pix antes de ir?
+            </p>
+            
+            <button class="btn btn-pix" onclick="copyPix()">🤝 AJUDAR COM R$ 1,00</button>
+            
+            <a href="https://the-world-infinity-1.tiiny.site" class="btn btn-no">Não obrigado, ir para o site</a>
+        </div>
+
+        <div class="footer">
+            Versão de testes em desenvolvimento constante.
+        </div>
+    </div>
+
+    <script>
+        // --- COLOQUE SUA CHAVE PIX DO INTER ABAIXO ---
+        const MINHA_CHAVE_PIX = "fc8630ce-90f4-4372-b59b-b65bf0663384";
+
+        function showSupport() {
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('pix-section').style.display = 'block';
+        }
+
+        function copyPix() {
+            navigator.clipboard.writeText(MINHA_CHAVE_PIX).then(() => {
+                alert("Chave Pix Copiada! Abra o app do Banco, escolha Pix Copia e Cola e cole a chave. Obrigado!");
+            });
+        }
+    </script>
+</body>
+</html>
